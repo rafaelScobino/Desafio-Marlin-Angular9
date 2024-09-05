@@ -4,6 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
+Devido a problemas de compatibilidade o `ng serve` deve ser rodado usando o node.js na versão 10
+  Para isso pode se utilizar o node nvm
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
