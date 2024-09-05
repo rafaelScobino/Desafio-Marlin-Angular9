@@ -3,6 +3,7 @@
 
 **Devido a problemas de compatibilidade foi utilizado o `Node.js na versão 20`**
   **Após o `ng new` o comando `npm install --legacy-peer-deps` foi utilizado para lidar com dependencias deprecadas**
+  
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.13.
 
 ## Development server
