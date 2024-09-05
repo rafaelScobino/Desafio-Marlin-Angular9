@@ -8,6 +8,7 @@ import { NewsCardComponent } from './news-card/news-card.component';
 import { NewsDetailComponent } from './news-detail/news-detail.component';
 import { NewsCardContainerComponent } from './news-page/news-card-container/news-card-container.component';
 import { MoreNewsComponent } from './more-news/more-news.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MoreNewsComponent } from './more-news/more-news.component';
     MoreNewsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
