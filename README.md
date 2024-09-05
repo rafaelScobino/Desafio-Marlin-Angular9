@@ -1,12 +1,15 @@
 # MarlinApp
 
+
+**Devido a problemas de compatibilidade foi utilizado o `Node.js na versão 20`**
+  **Após o `ng new` o comando `npm install --legacy-peer-deps` foi utilizado para lidar com dependencias deprecadas**
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.13.
 
 ## Development server
 
->**Important:**  Devido a problemas de compatibilidade o `ng serve` deve ser rodado usando o `node.js na versão 10.24.1`
+**Devido a problemas de compatibilidade o `ng serve` deve ser rodado usando o `node.js na versão 10.24.1`**
 
- >**Important:**  Para isso pode se utilizar o `Node NVM 1.1.12`
+ **Para isso pode se utilizar o `Node NVM 1.1.12`**
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
