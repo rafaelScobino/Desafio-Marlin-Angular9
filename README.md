@@ -4,9 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-> **Warning:** Devido a problemas de compatibilidade o `ng serve` deve ser rodado usando o `node.js na versão 10.24.1`
+**Important:**  Devido a problemas de compatibilidade o `ng serve` deve ser rodado usando o `node.js na versão 10.24.1`
 
-  Para isso pode se utilizar o `Node NVM 1.1.12`
+ **Important:**  Para isso pode se utilizar o `Node NVM 1.1.12`
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
