@@ -1,0 +1,93 @@
+.side-bar-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    gap: 2.5%;
+    height: 100%;
+}
+
+.side-bar-section-category-div{
+    width: 50%;
+}
+
+.category-list-item{
+    list-style: none;
+    border-bottom: 1px solid gray;
+    padding: 5% 0;
+}
+
+.category-list-item a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.category-list-item a:hover{
+    color:rgb(0, 204, 204)
+}
+
+.side-bar-section-search-div{
+    width: 50%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.search-div-title{
+    font-weight: bold;
+    text-wrap: nowrap;
+}
+
+.search-div-input{
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-size: clamp(14px,1vw,18px);
+    padding: 5% 2.5% 5% 2.5% ;
+    margin-top: 2.5%;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.search-div-input button{
+    width: 10%;
+    height: 20px;
+    min-width: 18px;
+    min-height: 15px;
+    overflow: visible; 
+    background-image: url('./../../assets/images/lupa.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+}
+
+.search-div-input button:hover{
+    cursor: pointer;
+    background-size: 110%;
+}   
+
+.search-div-input input,button{
+    border: none;
+    outline: none;
+    background: none;
+}
+
+@media (max-width: 600px) {
+    .side-bar-section{
+        gap: 1%;
+    }
+
+    .side-bar-section-category-div{
+        width: 80%;
+    }
+
+    .side-bar-section-search-div{
+        width: 80%;
+    }
+}
+
+@media (max-width: 880px) {
+    .search-div-title{
+        text-wrap: wrap;
+    }
+}

@@ -6,9 +6,10 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
 import { NewsPageComponent } from './news-page/news-page.component';
 import { NewsCardComponent } from './news-card/news-card.component';
 import { NewsDetailComponent } from './news-detail/news-detail.component';
-import { NewsCardContainerComponent } from './news-page/news-card-container/news-card-container.component';
+import { NewsCardContainerComponent } from './news-card-container/news-card-container.component';
 import { MoreNewsComponent } from './more-news/more-news.component';
 import { AppRoutingModule } from './app-routing.module';
+import { PageHeaderComponent } from './page-header/page-header.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
     NewsCardComponent,
     NewsDetailComponent,
     NewsCardContainerComponent,
-    MoreNewsComponent
+    MoreNewsComponent,
+    PageHeaderComponent
   ],
   imports: [
     BrowserModule,

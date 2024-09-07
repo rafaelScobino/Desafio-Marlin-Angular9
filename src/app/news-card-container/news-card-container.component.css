@@ -1,0 +1,17 @@
+.news-card-container{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.news-card-item{
+    width: 45%;
+    margin-bottom: 5% ;
+}
+
+@media (max-width: 600px) {
+    .news-card-item{
+        width: 80%;
+    }
+}

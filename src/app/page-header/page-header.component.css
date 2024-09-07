@@ -1,0 +1,14 @@
+.page-header{
+    font-size: clamp(14px,1vw,18px);
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.page-header-title{
+    font-size: clamp(16px,5vw,30px);
+}
+
