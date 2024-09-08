@@ -1,6 +1,4 @@
 # MarlinApp
-
-
 **Devido a problemas de compatibilidade foi utilizado o `Node.js na versão 20`**
   **Após o `ng new` o comando `npm install --legacy-peer-deps` foi utilizado para lidar com dependencias deprecadas**
   
