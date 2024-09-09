@@ -1,24 +1,22 @@
-<main>
+<main class="your-news">
     <form class="news-form">
-        <section class="header-inputs">
-            <div class="input-div">
-                <label for="your-news-title">Titulo</label>
-                <input type="text" id="your-news-title"  placeholder="Titulo..">
-            </div>
-            <div class="input-div">
-                <label for="your-news-img">Link da image</label>
-                <input type="text" id="your-news-img"  placeholder="URL da imagem">
-            </div>
-        </section>
-        <div class="preview-textarea">
-            <div class="textarea-div">
+            <section class="header-inputs">
+                <div class="input-div">
+                    <label for="your-news-title">Titulo</label>
+                    <input type="text" id="your-news-title"  placeholder="Titulo..">
+                </div>
+                <div class="input-div">
+                    <label for="your-news-img">Link da image<a id="open-link" href="https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/f28f/live/c1483cc0-60a2-11ef-b76f-f1f593af629e.png.webp" ><img id="open-link-img" class="box-shadow" src="./assets/openIMG.png" alt="open img"></a></label>
+                    <input type="text" id="your-news-img" placeholder="URL da imagem">
+                </div>
+            </section>
+            <div class="input-div textarea-div">
                 <label for="your-news-text">Texto da sua notícia</label>
                 <textarea type="text" id="your-news-text" placeholder="Escreva sua notícia!"></textarea>
-                <button type="submit" id="submit-btn">Postar</button>
             </div>
-            <section class="preview-section">
-                <app-news-card></app-news-card>
-            </section>
-        </div>
+            <button type="submit" id="submit-btn">Postar</button>
     </form>
+    <section class="preview-section">
+        <app-news-card></app-news-card>
+    </section>
 </main>

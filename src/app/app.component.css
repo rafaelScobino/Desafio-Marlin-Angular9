@@ -3,11 +3,13 @@
     display: flex;
     justify-content: space-between;
     margin-top: 2.5%;
+    width: 100%;    
 }
 
 .main-content{
     width: 70%;
     padding-left: 2.5%;
+    height: 100%;
 }
 
 .side-menu{

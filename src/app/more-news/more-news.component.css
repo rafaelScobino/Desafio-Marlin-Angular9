@@ -1,35 +1,66 @@
-.input-div{
-    display:flex;
-    flex-direction:column;
-    flex-wrap: nowrap;
-}
-
-.input-div label{
-    margin: 2% 0 0.5% 0;
-}
-
-.preview-textarea{
+.your-news{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 2%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
 }
 
-.textarea-div{
-    display:flex;
-    flex-direction:column;
+.news-form{
+    display: flex;
+    flex-direction: column;
     flex-wrap: nowrap;
     width: 45%;
 }
 
-.textarea-div label{
-    margin-bottom: 2%;
+.header-inputs{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.input-div{
+    font-weight: bold;
+    display:flex;
+    flex-direction:column;
+    flex-wrap: nowrap;
+    margin-bottom: 1%;
+    width: 100%;
+}
+
+.input-div input{
+    border: 1px solid grey;
+    border-radius: 20px;
+    margin: 0.5% 0 1% 0;
+    padding: 1.5%;
+}
+
+#your-news-title{
+    font-weight: bold;
+}
+
+#your-news-img{
+    color: blue;
+    text-decoration: underline;
+}
+
+#open-link-img{
+    width: 20px;
+    height: 20px;
+    align-self: center;
+}
+
+.textarea-div{
+    height: 70%;
 }
 
 #your-news-text{
+    border: 1px solid grey;
+    border-radius: 20px;
+    padding: 1.5%;
     resize:none;
     width: 100%;
-    height: 80%;
+    height: 100%;
 }
 
 #submit-btn{
@@ -56,6 +87,25 @@
     width: 45%;
 }
 
+@media (max-width: 500px) {
+    .your-news{
+        flex-direction: column;
+        align-items: center;
+    }
 
+    .news-form{
+        width: 80%;
+    }
+
+    .textarea-div{
+        height: 40%;
+    }
+
+    .preview-section{
+        margin: 5%;
+        width: 80%;
+    }
+
+}
 
 

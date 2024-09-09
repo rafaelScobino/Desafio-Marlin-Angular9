@@ -10,6 +10,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { NewsPageComponent } from './news-page/news-page.component';
 
+//Importando service de requests 
+import { ApiService } from './services/api-service.service';
+
+//Importando modulo para configurar dependências do HttpClient
+import {HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +28,10 @@ import { NewsPageComponent } from './news-page/news-page.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

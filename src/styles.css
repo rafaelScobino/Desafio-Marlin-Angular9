@@ -9,3 +9,22 @@
     width: 100%;
 }
 
+.proj-link{
+    font-size: clamp(14px,1vw,18px);
+    font-weight: bold;
+    color: rgb(0, 175, 175);
+    border: none;
+    background: none;
+    text-align: left;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.proj-link:hover{
+    color: blue;
+    cursor: pointer;
+}
+
+.box-shadow:hover{
+     box-shadow: -1px 3px 10px 1px black;
+}
