@@ -40,20 +40,31 @@
     height: 80%;
 }
 
+.title-div{
+    display: flex;
+    align-items: center;
+    height: 30%;
+}
+
 .news-card-title{
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
     text-wrap: wrap;
-    height: 30%;
 }
+
+.paragraph-div{
+    display: flex;
+    align-items: center;
+    height: 50%;
+}
+
 
 .news-card-paragraph{
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
     text-wrap: wrap;
-    height: 50%;
 }
 
 @media (max-width: 1330px){
@@ -115,8 +126,9 @@
 
 @media (max-width: 300px){
     .news-card-content-div{
-        height: 85vw;
+        height: 350px;
     }
+  
 }
 
 

@@ -14,13 +14,14 @@
                 <label for="your-news-text">Texto da sua notícia</label>
                 <textarea type="text" id="your-news-text" name="formBody" required [(ngModel)] = "formBody" placeholder="Escreva sua notícia!"></textarea>
             </div>
-            <button type="submit" id="submit-btn">Postar</button>
+            <button type="submit" (click)="postYourNews()" id="submit-btn">Postar</button>
     </form>
     <section class="preview-section">
         <app-news-card
             [title]="formTitle"
             [img]="formImgUrl"
             [body]="formBody"
+            [id]="validId"
         ></app-news-card>
     </section>
 </main>

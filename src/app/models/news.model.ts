@@ -23,12 +23,12 @@ export class News {
         typeof data.id === 'number'; 
   }
 
-  //Método para trasnformar data
-  static transformDate(date:Date):string{
+  //Método para transformar data
+  static transformDate(date:string):string{
     let newDate = new Date(date);
-      let dia = newDate.getDay();
+      let dia = newDate.toLocaleString('default',{day: 'numeric'});
       let mes = newDate.toLocaleString('default',{month: 'short'});
-      let ano = newDate.getFullYear();
+      let ano = newDate.toLocaleString('default',{year: 'numeric'});
     let newCreatedAt =  `${dia} ${mes} ${ano}`;
 
     return newCreatedAt;

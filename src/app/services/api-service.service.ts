@@ -43,8 +43,7 @@ export class ApiService {
           validData = transformedData.filter(News.isValid)
           console.log(validData)
         }else{
-          console.log('Observable is not a valid News Array');
-          return [];
+          throw new Error('Observable is not a valid News Array');        
         }
 
         return validData;
@@ -91,10 +90,57 @@ export class ApiService {
     //Validando input do usuário como News Object
     if(News.isValid(data)){
 
-      //Executando a request POST
-      this.http.post<News>(this.ApiUrl,data)    
+    //Criando requisição POST para enviar dados com fetch
+    fetch(this.ApiUrl,
+      {
+        method: 'POST',
+        headers: {'Content-type': 'application/json'},
+        body: JSON.stringify(data),
+      
+      }).then((response)=>{response.json()})
+        .then((postResult) => {console.log(postResult)})
+
     }else{
-      throw new Error('Data is not valid News')
+      throw new Error('POST not executed because Data is not valid News')
     }
   }
+
+  //Método para criar News.ID
+  getValidId():Observable<number>{
+    //Definindo Array de News
+    let newsArr:News[];
+
+    //Definindo Array de News.id
+    let idArr:number[];
+
+    //Chamando GET all
+    return this.getAllNews().pipe(
+
+      //Tratando Observable
+      map((data)=>{
+      
+        newsArr =  data;
+
+        //Validando newsArr como Array
+        if(Array.isArray(newsArr)){
+          
+          //Logica para retornar um Array de News.id ordenado
+          idArr = data.map((news)=>{ return news.id})
+          idArr.sort((a:number, b:number) => a - b)
+          console.log(idArr)
+          
+          //Validando idArr e definindo o próximo ID valid
+          if(idArr.length > 0){
+            let validId:number = idArr[idArr.length - 1] + 1   
+
+            return validId;
+          }else{
+            throw new Error('idArr is empty');
+          }
+
+        }else{
+          throw new Error ("couldn't get valid ID") 
+        }
+    }))};
+
 }

@@ -59,6 +59,7 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom: 1px solid grey;
+    max-height: 60vh;
 }
 
 .news-detail-figure figcaption{
