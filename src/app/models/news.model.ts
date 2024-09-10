@@ -23,21 +23,33 @@ export class News {
         typeof data.id === 'number'; 
   }
 
+  //Método para trasnformar data
+  static transformDate(date:Date):string{
+    let newDate = new Date(date);
+      let dia = newDate.getDay();
+      let mes = newDate.toLocaleString('default',{month: 'short'});
+      let ano = newDate.getFullYear();
+    let newCreatedAt =  `${dia} ${mes} ${ano}`;
+
+    return newCreatedAt;
+  }
+
+  //Método para trasnformar ID
+  static transformId(id:string):number{
+    return  parseInt(id)
+  }
+
   //Método para transformar data em uma string apropriada e o id em number
-  static transformNews(newsItem:any): News{
+  static transformNews(item:any): News{
     
     //Transformando createdAt
-    let date = new Date(newsItem.createdAt);
-      let dia = date.getDay();
-      let mes = date.toLocaleString('default',{month: 'short'});
-      let ano = date.getFullYear();
-    let newCreatedAt =  `${dia} ${mes} ${ano}`
+    let newCreatedAt = News.transformDate(item.createdAt)
     
     //Transformando Id
-    let newId = parseInt(newsItem.id)
+    let newId = News.transformId(item.id)
     
     //Instanciando classe transformada
-    let transformedNews = new News(newCreatedAt,newsItem.title,newsItem.image,newsItem.body,newId)
+    let transformedNews = new News(newCreatedAt,item.title,item.image,item.body,newId)
     
     return transformedNews
   }

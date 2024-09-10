@@ -1,10 +1,12 @@
 <article class="news-card">
     <figure class="news-card-figure">
-        <img class="news-card-figure-img" src="./assets/Covid-19.jpg" alt="Poster Covid 19">
+        <img class="news-card-figure-img" [src]="cardImgUrl" onerror="this.src ='./assets/placeholderImg.jpg'" [alt]="cardTitle">
     </figure>
-    <div class="news-card-content">
-        <h4 class="news-card-title">Coronavírus: como a doença é transmitida?</h4>
-        <p class="news-card-paragraph">Saiba o que é coronavírus, em quanto tempo a doença pode se manifestar e quais são os principais</p>
-        <button class="proj-link" routerLink="/news-detail">Ler mais</button>
+    <div class="news-card-content-div">
+        <section class="news-card-content">
+        <h4 class="news-card-title">{{cardTitlePrev}}</h4>
+        <p class="news-card-paragraph">{{cardBodyPrev}}</p>
+        <button class="proj-link" [routerLink]="detailsLink" [queryParams]="detailsParams">Ler mais</button>
+    </section>
     </div>
 </article>

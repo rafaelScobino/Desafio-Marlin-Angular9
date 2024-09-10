@@ -12,19 +12,17 @@ export class NewsPageComponent implements OnInit {
 //Injentando ApiService no componente
   constructor(private api:ApiService) { }
 
-  //Declarando array de 'News' e 
+  //Declarando array de 'News' e  Objeto 'News'
   newsArr:News[] = []; 
+  newsObj:News;
   
   ngOnInit(): void {
+
+    //Retornando Observable<News[]> e definindo valor de newsArr
     this.api.getAllNews().subscribe(
       (obsNews)=>{
          this.newsArr = obsNews
       })
   }
 
-  test(){
-
-   console.log( this.newsArr)
-
-  }
 }
