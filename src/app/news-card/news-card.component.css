@@ -45,11 +45,17 @@
 }
 
 .news-card-title{
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
     text-wrap: wrap;
     height: 30%;
 }
 
 .news-card-paragraph{
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
     text-wrap: wrap;
     height: 50%;
 }

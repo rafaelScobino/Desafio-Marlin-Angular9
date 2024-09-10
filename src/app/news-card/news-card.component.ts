@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 //Importando arquivo de utils para acesso a funções de apoio
 import {textToPrev} from './../utils/newsUtils';
@@ -11,16 +11,16 @@ import { ApiService } from '../services/api-service.service';
   templateUrl: './news-card.component.html',
   styleUrls: ['./news-card.component.css']
 })
-export class NewsCardComponent implements OnInit {
+export class NewsCardComponent implements OnInit,OnChanges {
 
-  //Definindo variáveis para criação dinâmica de news-card.component
+  //Definindo propriedades para criação dinâmica de news-card.component
   @Input('img') cardImgUrl:string = 'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png';
 
-  //Variável do titulo da notícia e tratando o dado para gerar preview
+  //Propriedades do titulo da notícia e tratando o dado para gerar preview
   @Input('title') cardTitle:string = 'Placeholder Title';
   cardTitlePrev:string;
 
-  //Variável do corpo de texto da notícia e tratando o dado para gerar preview
+  //Propriedades do corpo de texto da notícia e tratando o dado para gerar preview
   @Input('body') cardBody:string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in';
   cardBodyPrev:string;
 
@@ -45,7 +45,16 @@ export class NewsCardComponent implements OnInit {
     this.cardBodyPrev = textToPrev(this.cardBody,97);
 
     console.log(`${this.cardTitle}: id: ${this.cardId}`)
+  }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['cardTitle'] || changes['cardBody']) {
+      this.cardTitlePrev = textToPrev(this.cardTitle, 80);
+      this.cardBodyPrev = textToPrev(this.cardBody, 97);
+    }
+    if (changes['cardId']) {
+      this.detailsParams = { id: this.cardId };
+    }
   }
 
 }
