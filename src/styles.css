@@ -25,6 +25,10 @@
     cursor: pointer;
 }
 
+.proj-img-container:hover img{
+    box-shadow: -1px 3px 10px 1px black;
+}
+
 .box-shadow:hover{
-     box-shadow: -1px 3px 10px 1px black;
+    box-shadow: -1px 3px 10px 1px black;
 }

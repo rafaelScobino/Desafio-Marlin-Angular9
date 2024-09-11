@@ -74,13 +74,21 @@
 
 .nav-bar{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    gap: 5px;
     align-items: center;
     width: 50%;
 } 
 
 .home-div{
-    width: fit-content;
+    width: 100%;
+}
+
+.home-div figure{
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    align-items: center;
 }
 
 .home-div img{
@@ -92,7 +100,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    padding-left: 10%;
+    gap: 5px;
 }
 
 .nav-bar ul li{
@@ -103,10 +111,6 @@
 
 
 @media (max-width: 600px) {
-    .side-bar-section{
-        gap: 1%;
-    }
-
     .side-bar-section-category-div{
         width: 80%;
     }

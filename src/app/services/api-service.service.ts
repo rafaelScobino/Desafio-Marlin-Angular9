@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { News } from '../models/news.model';
 import { Observable, of } from 'rxjs';
 import { catchError, map} from 'rxjs/operators';
+import { element } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -140,6 +141,58 @@ export class ApiService {
 
         }else{
           throw new Error ("couldn't get valid ID") 
+        }
+    }))};
+
+  //Método para criar News.ID
+  getRndId():Observable<number>{
+    //Definindo Array de News
+    let newsArr:News[];
+
+    //Definindo Array de News.id
+    let idArr:number[];
+
+    //Definindo ID randômico de retorno
+    let rndId:number;
+
+    //Chamando GET all
+    return this.getAllNews().pipe(
+
+      //Tratando Observable
+      map((data)=>{
+      
+        newsArr =  data;
+
+        //Validando newsArr como Array
+        if(Array.isArray(newsArr)){
+          
+          //Logica para retornar um Array de News.id 
+          idArr = data.map((news)=>{ return news.id})
+          console.log(idArr)
+          
+          //Validando idArr e definindo o ID randômico
+          if(idArr.length > 0 && idArr.length === 1){
+            rndId = idArr[0];    
+            return rndId;
+
+          }else if(idArr.length > 1){
+
+            //Lógica para gerar o rndID e validar se ele pertence ao idArr
+            idArr.sort((a,b) =>  a - b)
+            do{
+              rndId = Math.floor(Math.random() * (idArr[idArr.length - 1]))
+            }while(!idArr.some(element => element === rndId ))
+
+            return rndId;
+
+          }
+          
+          else{
+            throw new Error('idArr is empty');
+          }
+
+        }else{
+          throw new Error ("couldn't get rnd ID") 
         }
     }))};
 
