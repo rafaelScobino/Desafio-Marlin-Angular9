@@ -1,27 +1,27 @@
 <main class="your-news">
-    <form class="news-form">
+    <form #newsForm="ngForm" class="news-form">
             <section class="header-inputs">
                 <div class="input-div">
-                    <label for="your-news-title">Titulo</label>
-                    <input type="text" id="your-news-title" name="formTitle" required  [(ngModel)] = "formTitle" placeholder="Titulo..">
+                    <label for="newsTitle">Titulo</label>
+                    <input type="text" id="newsTitle" name="newsTitle" required  [(ngModel)]="newsTitle" placeholder="Titulo..">
                 </div>
                 <div class="input-div">
-                    <label for="your-news-img">Link da image<a id="open-link" href="https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/f28f/live/c1483cc0-60a2-11ef-b76f-f1f593af629e.png.webp" ><img id="open-link-img" class="box-shadow" src="./assets/openIMG.png" alt="open img"></a></label>
-                    <input type="text" id="your-news-img" name="formImgUrl" required [(ngModel)] = "formImgUrl" placeholder="URL da imagem">
+                    <label for="newsImgUrl">Link da image<a id="open-link" href="https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/f28f/live/c1483cc0-60a2-11ef-b76f-f1f593af629e.png.webp" ><img id="open-newsImg" class="box-shadow" src="./assets/openIMG.png" alt="imgUrl"></a></label>
+                    <input type="text" id="newsImgUrl" name="newsImgUrl" required [(ngModel)]="newsImgUrl" placeholder="URL da sua imagem!">
                 </div>
             </section>
             <div class="input-div textarea-div">
-                <label for="your-news-text">Texto da sua notícia</label>
-                <textarea type="text" id="your-news-text" name="formBody" required [(ngModel)] = "formBody" placeholder="Escreva sua notícia!"></textarea>
+                <label for="newsBody">Texto da sua notícia</label>
+                <textarea type="text" id="newsBody" name="newsBody" required [(ngModel)]="newsBody" placeholder="Escreva sua notícia!"></textarea>
             </div>
             <button type="submit" (click)="postYourNews()" id="submit-btn">Postar</button>
     </form>
     <section class="preview-section">
         <app-news-card
-            [title]="formTitle"
-            [img]="formImgUrl"
-            [body]="formBody"
-            [id]="validId"
+            [title]="newsTitle"
+            [img]="newsImgUrl"
+            [body]="newsBody"
+            [id]="15"
         ></app-news-card>
     </section>
 </main>

@@ -35,16 +35,16 @@
     padding: 1.5%;
 }
 
-#your-news-title{
+#newsTitle{
     font-weight: bold;
 }
 
-#your-news-img{
+#newsImgUrl{
     color: blue;
     text-decoration: underline;
 }
 
-#open-link-img{
+#open-newsImg{
     width: 20px;
     height: 20px;
     align-self: center;
@@ -54,7 +54,7 @@
     height: 70%;
 }
 
-#your-news-text{
+#newsBody{
     border: 1px solid grey;
     border-radius: 20px;
     padding: 1.5%;

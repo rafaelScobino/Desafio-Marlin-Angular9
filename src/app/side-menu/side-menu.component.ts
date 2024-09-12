@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api-service.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { title } from 'process';
 
 @Component({
   selector: 'app-side-menu',
@@ -14,10 +15,10 @@ export class SideMenuComponent implements OnInit {
   moreNewsRoute:string;
   newsDetailRoute:string;
 
-  //definindo parâmetro de ID randômica
+  //Declarando parâmetros de Header
   detailsParams:{};
-
-  //Definindo propriedade de News ID randômica
+  
+  //Declarando propriedade de News ID randômica
   randomId:number;
 
   constructor(private api:ApiService, private router: Router) { }
@@ -30,7 +31,7 @@ export class SideMenuComponent implements OnInit {
           this.randomId = data;
 
           //Atribuindo valor a propriedade de parâmetro assincronicamente para esperar randomId ter valor e evitar 'undefined'
-          this.detailsParams = { id: this.randomId};
+          this.detailsParams = { id: this.randomId, sorte: 1};
         }
       )
 
@@ -41,16 +42,13 @@ export class SideMenuComponent implements OnInit {
           
           //Reatribuindo valor a randomId
           this.api.getRndId().subscribe(
-            (data)=>{this.randomId = data;this.detailsParams = { id: this.randomId};})
-
+            (data)=>{this.randomId = data;
+            this.detailsParams = { id: this.randomId, sorte: 1};})
         }
       );
 
     this.moreNewsRoute = "/more-news"
     this.newsDetailRoute = "/news-detail"
   }
-
-  //Método para 
-
 
 }

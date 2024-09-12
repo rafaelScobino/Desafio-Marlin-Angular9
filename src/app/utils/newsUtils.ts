@@ -13,3 +13,16 @@ export function textToPrev(text:string,index:number):string{
 
   return `${preview}...`;
 }
+
+//Função para transformar data
+export function transformDate(date:string):string{
+    let newDate = new Date(date);
+      let dia = newDate.toLocaleString('default',{day: 'numeric'});
+      let mes = newDate.toLocaleString('default',{month: 'short'});
+      let ano = newDate.toLocaleString('default',{year: 'numeric'});
+    let cleanDate =  `${dia} ${mes} ${ano}`;
+
+    return cleanDate;
+  }
+
+

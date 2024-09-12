@@ -6,6 +6,7 @@ import { News } from '../models/news.model';
 //Importando 'ApiService'
 import { ApiService } from '../services/api-service.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-more-news',
@@ -14,39 +15,56 @@ import { Observable } from 'rxjs';
 })
 export class MoreNewsComponent implements OnInit {
 
+  //Declarando Objeto do Form
+  formObj: {
+    createdAt: string;
+    title: string;
+    image: string;
+    body: string;
+    id: string;
+  }
+
   //Declarando Objeto News
   NewsObj:News;
 
   //Declarando propriedades para criação dinâmica de 'news-card'
-  @Input() formImgUrl:string;
-  @Input() formTitle:string = '';
-  @Input() formBody:string = '';
+  @Input() newsImgUrl:string = '';
+  @Input() newsTitle:string = '';
+  @Input() newsBody:string = '';
 
   //Declarando propriedade para WebApi POST
-  validId:number;
+  validId:string;
   createdAt:string;
 
-  constructor(private api:ApiService) { }
+  constructor(private api:ApiService,private router:Router) { }
 
   ngOnInit(): void {
-    this.api.getValidId().subscribe((data)=>{this.validId = data
+    
+    //Gerando nova ID valida para notícia
+    this.api.getValidId().subscribe((data)=>{this.validId = `${data}`
       console.log(this.validId)
     })
 
+    // 
     this.createdAt = new Date().toISOString()
     console.log(this.createdAt)
+
+    //Definindo estratégia de rota para impedir o Angular de usar a mesma rota e simular um 'page Refresh'
+    this.router.routeReuseStrategy.shouldReuseRoute = () => { return false; };
 
   }
 
   postYourNews(){
   
-  this.NewsObj = new News(
-    this.createdAt,
-    this.formTitle,
-    this.formImgUrl,
-    this.formBody,
-    this.validId
-  )
+  this.formObj  = {
+    createdAt:this.createdAt,
+    title:this.newsTitle,
+    image:this.newsImgUrl,
+    body: this.newsBody,
+    id: this.validId
+  }
+
+  this.NewsObj = News.createNews(this.formObj)
 
   console.log(this.NewsObj)
 

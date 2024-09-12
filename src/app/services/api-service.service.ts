@@ -4,8 +4,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { News } from '../models/news.model';
 import { Observable, of } from 'rxjs';
-import { catchError, map} from 'rxjs/operators';
-import { element } from 'protractor';
+import { map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -31,20 +30,17 @@ export class ApiService {
         //Definindo variáveis
         let transformedData:any;
         let validData:News[];
-        console.log(data)
-        
+       
         //Validando como Array
         if (Array.isArray(data)){
 
           //Transformando items em News
-          transformedData = data.map((item)=>{return News.transformNews(item)});
-          console.log(transformedData)
+          transformedData = data.map((item)=>{return News.createNews(item)});
 
-          //Retornando items validados como News
-          validData = transformedData.filter(News.isValid)
-          console.log(validData)
+          validData = transformedData;
+
         }else{
-          throw new Error('Observable is not a valid News Array');        
+          throw new Error('Observable is not an Array');        
         }
 
         return validData;
@@ -68,16 +64,9 @@ export class ApiService {
         if(!Array.isArray(data)){
         
           //Transformando resposta em 'News'
-          newsObj = News.transformNews(data);
+          newsObj = News.createNews(data);
           
-          //Validando Objeto
-          if(News.isValid(newsObj)){
-          
-            return newsObj
-
-          }else{
-            throw new Error('Data is not a valid News Object')
-          }
+            return newsObj;
           
         }else{
           throw new Error('Data return more than one item')
@@ -89,10 +78,10 @@ export class ApiService {
   postNews(data:News):void{
 
     //Validando input do usuário como News Object
-    if(News.isValid(data)){
+    if( data instanceof News){
 
     //Criando requisição POST para enviar dados com fetch
-    fetch(this.ApiUrl,
+    fetch('',
       {
         method: 'POST',
         headers: {'Content-type': 'application/json'},
@@ -106,29 +95,29 @@ export class ApiService {
     }
   }
 
-  //Método para criar News.ID
+  //Método para criar um novo News.ID valido considerando numero de elementos retornados pelo GET
   getValidId():Observable<number>{
-    //Definindo Array de News
-    let newsArr:News[];
+    //Definindo Array de items
+    let itemsArr:any[];
 
-    //Definindo Array de News.id
+    //Definindo Array de items.id
     let idArr:number[];
 
     //Chamando GET all
-    return this.getAllNews().pipe(
+    return this.http.get<any>(this.ApiUrl).pipe(
 
       //Tratando Observable
       map((data)=>{
       
-        newsArr =  data;
+        itemsArr =  data;
 
-        //Validando newsArr como Array
-        if(Array.isArray(newsArr)){
+        //Validando itemsArr como Array
+        if(Array.isArray(itemsArr)){
           
-          //Logica para retornar um Array de News.id ordenado
-          idArr = data.map((news)=>{ return news.id})
+          //Logica para retornar um Array de item.id ordenado
+          let stringIdArr = data.map((item: { id: any; })=>{ return item.id})
+          idArr = stringIdArr.map((item: string) => parseInt(item))
           idArr.sort((a:number, b:number) => a - b)
-          console.log(idArr)
           
           //Validando idArr e definindo o próximo ID valid
           if(idArr.length > 0){
@@ -168,7 +157,6 @@ export class ApiService {
           
           //Logica para retornar um Array de News.id 
           idArr = data.map((news)=>{ return news.id})
-          console.log(idArr)
           
           //Validando idArr e definindo o ID randômico
           if(idArr.length > 0 && idArr.length === 1){
@@ -192,7 +180,7 @@ export class ApiService {
           }
 
         }else{
-          throw new Error ("couldn't get rnd ID") 
+          throw new Error ("couldn't get rndID") 
         }
     }))};
 

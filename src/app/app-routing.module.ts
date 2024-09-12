@@ -14,7 +14,11 @@ const routes: Routes = [
 
 @NgModule({
   providers:[],
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+  RouterModule.forRoot(routes,
+    //Definindo comportamento de Router para simular 'reload' da rota do componente
+    {onSameUrlNavigation: 'reload'}
+  )],
   exports: [RouterModule,CommonModule]
 })
 export class AppRoutingModule { }

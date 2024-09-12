@@ -20,8 +20,8 @@ export class NewsPageComponent implements OnInit {
 
     //Retornando Observable<News[]> e definindo valor de newsArr
     this.api.getAllNews().subscribe(
-      (obsNews)=>{
-         this.newsArr = obsNews
+      (obsvNews)=>{
+         this.newsArr = obsvNews
       })
   }
 

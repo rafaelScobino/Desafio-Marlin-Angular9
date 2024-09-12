@@ -5,6 +5,7 @@ import {textToPrev} from './../utils/newsUtils';
 
 //Importando ApiService para validar url da imagem
 import { ApiService } from '../services/api-service.service';
+import { title } from 'process';
 
 @Component({
   selector: 'app-news-card',
@@ -36,15 +37,13 @@ export class NewsCardComponent implements OnInit,OnChanges {
     
     //Inicializando url de router detailsLink e parâmetros
     this.detailsLink = '/news-detail'
-    this.detailsParams = { id: this.cardId}
+    this.detailsParams = { id: this.cardId, title: this.cardTitle}
 
     //Utilizando 'textToPrev' para encurtar o texto do titulo e fazer a preview
     this.cardTitlePrev = textToPrev(this.cardTitle,80);
     
     //Utilizando 'textToPrev' para encurtar o texto do body e fazer a preview
     this.cardBodyPrev = textToPrev(this.cardBody,97);
-
-    console.log(`${this.cardTitle}: id: ${this.cardId}`)
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -53,7 +52,7 @@ export class NewsCardComponent implements OnInit,OnChanges {
       this.cardBodyPrev = textToPrev(this.cardBody, 97);
     }
     if (changes['cardId']) {
-      this.detailsParams = { id: this.cardId };
+      this.detailsParams = { id: this.cardId, title: this.cardTitle };
     }
   }
 

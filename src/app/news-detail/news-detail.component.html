@@ -6,13 +6,13 @@
                 <figcaption><b>Escrito por: </b>Author P. H. PlaceHolder</figcaption>
             </figure>
         </div>
-        <time datetime="DD-MMM-YYY"><b>Modificado em: </b>{{NewsObj.createdAt}}</time>
+        <time><b>Modificado em: </b>{{cleanDate}}</time>
     </aside>
     <main>
         <section class="news-detail-content">
             <figure class="news-detail-figure">
                 <img [src]="NewsObj.image" onerror="this.src='./assets/placeholderImg.jpg'" [alt]="NewsObj.title">
-                <figcaption>{{NewsObj.title}} Poster</figcaption>           
+                <figcaption>{{NewsObj.title}}</figcaption>           
             </figure>
             <div class="news-detail-text">
                 <p class="news-detail-paragraph">{{NewsObj.body}}</p>
