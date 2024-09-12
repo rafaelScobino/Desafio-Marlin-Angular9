@@ -5,7 +5,6 @@ import { News } from '../models/news.model';
 
 //Importando 'ApiService'
 import { ApiService } from '../services/api-service.service';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,6 +13,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./more-news.component.css']
 })
 export class MoreNewsComponent implements OnInit {
+  testeId = 2;
+
+  //Declarando propriedade para 'post-feedback'
+  isPosted:boolean;
 
   //Declarando Objeto do Form
   formObj: {
@@ -41,7 +44,8 @@ export class MoreNewsComponent implements OnInit {
   ngOnInit(): void {
     
     //Gerando nova ID valida para notícia
-    this.api.getValidId().subscribe((data)=>{this.validId = `${data}`
+    this.api.getValidId().subscribe((data)=>{
+      this.validId = `${data}`
       console.log(this.validId)
     })
 
@@ -56,6 +60,9 @@ export class MoreNewsComponent implements OnInit {
 
   postYourNews(){
   
+  this.isPosted = true;
+   this.testeId = 3;
+
   this.formObj  = {
     createdAt:this.createdAt,
     title:this.newsTitle,

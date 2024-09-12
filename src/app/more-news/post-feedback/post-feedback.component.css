@@ -1,0 +1,41 @@
+.post-feedback{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index:1;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(1,1,1,0.4);
+}
+
+.feedback-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: fit-content;
+  width: 25vw;
+  height: 15vh;
+  margin-bottom: 30vh;
+  border: 1.5px solid gray;
+  border-radius: 25px;
+  background-color: rgb(255, 255, 255);
+}
+
+.text-div{
+  font-size: clamp(20px,10vw,30px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  margin: 2.5%;
+  padding: 5%;
+}
+
+.text-div span{
+  font-weight: bolder;
+}

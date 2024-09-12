@@ -8,6 +8,7 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
 import { NewsCardComponent } from './news-card/news-card.component';
 import { NewsDetailComponent } from './news-detail/news-detail.component';
 import { MoreNewsComponent } from './more-news/more-news.component';
+import { PostFeedbackComponent } from './more-news/post-feedback/post-feedback.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { NewsPageComponent } from './news-page/news-page.component';
@@ -18,6 +19,7 @@ import { ApiService } from './services/api-service.service';
 //Importando modulo para configurar dependências do HttpClient
 import {HttpClientModule} from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,8 @@ import {HttpClientModule} from '@angular/common/http';
     NewsDetailComponent,
     MoreNewsComponent,
     PageHeaderComponent,
-    NewsPageComponent
+    NewsPageComponent,
+    PostFeedbackComponent
   ],
   imports: [
     BrowserModule,

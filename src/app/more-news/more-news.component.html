@@ -1,3 +1,7 @@
+<app-post-feedback *ngIf="isPosted"
+[isPosted]="isPosted" 
+[postId]="testeId"
+></app-post-feedback>
 <main class="your-news">
     <form #newsForm="ngForm" class="news-form">
             <section class="header-inputs">
@@ -21,7 +25,7 @@
             [title]="newsTitle"
             [img]="newsImgUrl"
             [body]="newsBody"
-            [id]="15"
+            [id]="validId"
         ></app-news-card>
     </section>
 </main>
