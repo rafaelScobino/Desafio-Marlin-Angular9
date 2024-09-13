@@ -1,10 +1,9 @@
 .page-header{
-    font-size: clamp(14px,1vw,18px);
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
     text-align: center;
-    width: 100vw;
+    width: 100%;
     margin-top: 5%;
 }
 

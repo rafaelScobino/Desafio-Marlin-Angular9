@@ -2,17 +2,17 @@
     <div class="side-bar-section-category-div">
             <h5 name="side-bar-section-category-title">Categorias</h5>
             <ul name="side-bar-section-category-list">
-                <li class="category-list-item"><a href="">Lorem ipsum dolor</a></li>
-                <li class="category-list-item"><a href="">Lorem ipsum dolor</a></li>
-                <li class="category-list-item"><a href="">Lorem ipsum dolor</a></li>
-                <li class="category-list-item"><a href="">Lorem ipsum dolor</a></li>
+                <li class="category-list-item"><a href="./">Lorem ipsum dolor</a></li>
+                <li class="category-list-item"><a href="./">Lorem ipsum dolor</a></li>
+                <li class="category-list-item"><a href="./">Lorem ipsum dolor</a></li>
+                <li class="category-list-item"><a href="./">Lorem ipsum dolor</a></li>
             </ul>
     </div>
     <div class="side-bar-section-search-div">
         <label for="search-input" class="search-div-title">Procurando alguma notícia?</label>
         <div class="search-div-input">
-            <input id="search-input" placeholder="Pesquisar por...">
-            <button></button>
+            <input id="search-input" [(ngModel)]="searchText" (change)="searchNewsUpdate()"   placeholder="Pesquisar por...">
+            <button (click)="searchNews()"></button>
         </div>
     </div>
     <nav class="nav-bar">
@@ -25,8 +25,8 @@
             </a>
         </div>
         <ul>
-            <li><a class="proj-link" [routerLink]="newsDetailRoute" [queryParams]="detailsParams" >Estou com sorte</a></li>
-            <li><a class="proj-link" [routerLink]="moreNewsRoute" >Sua Notícia</a></li>
+            <li><a class="proj-link" (click)="reRoute()" [routerLink]="newsDetailRoute" [queryParams]="detailsParams" >Estou com sorte</a></li>
+            <li><a class="proj-link" (click)="reRoute()" [routerLink]="moreNewsRoute" >Sua Notícia</a></li>
         </ul>
         </nav>
 </aside>

@@ -1,11 +1,12 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 //Importando arquivo de utils para acesso a funções de apoio
-import {textToPrev} from './../utils/newsUtils';
+import {routeReuse, textToPrev} from './../utils/newsUtils';
 
 //Importando ApiService para validar url da imagem
 import { ApiService } from '../services/api-service.service';
 import { title } from 'process';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news-card',
@@ -31,7 +32,7 @@ export class NewsCardComponent implements OnInit,OnChanges {
   detailsLink:string;
   detailsParams:{};
 
-  constructor(private api:ApiService) { }
+  constructor(private api:ApiService,private router:Router) { }
 
   ngOnInit(): void {
     
@@ -54,6 +55,10 @@ export class NewsCardComponent implements OnInit,OnChanges {
     if (changes['cardId']) {
       this.detailsParams = { id: this.cardId, title: this.cardTitle };
     }
+  }
+
+  reRoute(){
+    routeReuse(this.router,false)
   }
 
 }

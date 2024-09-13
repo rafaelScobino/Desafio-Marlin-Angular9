@@ -1,8 +1,12 @@
 <section class="news-page">
-    <app-news-card class="news-card-item" *ngFor="let news of newsArr"
+    <app-news-card class="news-card-item" *ngFor="let news of loadedNewsArr"
         [img]="news.image"
         [title]="news.title"
         [body]="news.body"
         [id]="news.id"
     ></app-news-card>
 </section>
+<div class="btn-div">
+    <button (click)="loadMore()" class="load-more proj-btn box-shadow">Carregar Mais</button>
+</div>
+

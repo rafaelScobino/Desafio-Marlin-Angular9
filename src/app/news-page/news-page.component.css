@@ -10,6 +10,21 @@
     margin-bottom: 5% ;
 }
 
+.btn-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.load-more{
+    height: 50px;
+    width: 40%;
+    overflow: hidden;
+}
+
 @media (max-width: 900px) {
     .news-card-item{
         width: 80%;

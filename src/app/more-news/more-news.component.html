@@ -1,6 +1,7 @@
 <app-post-feedback *ngIf="isPosted"
 [isPosted]="isPosted" 
 [postId]="testeId"
+[postTitle]="newsTitle"
 ></app-post-feedback>
 <main class="your-news">
     <form #newsForm="ngForm" class="news-form">
@@ -18,7 +19,7 @@
                 <label for="newsBody">Texto da sua notícia</label>
                 <textarea type="text" id="newsBody" name="newsBody" required [(ngModel)]="newsBody" placeholder="Escreva sua notícia!"></textarea>
             </div>
-            <button type="submit" (click)="postYourNews()" id="submit-btn">Postar</button>
+            <button type="submit" (click)="postYourNews()" class="proj-btn" id="submit-btn">Postar</button>
     </form>
     <section class="preview-section">
         <app-news-card

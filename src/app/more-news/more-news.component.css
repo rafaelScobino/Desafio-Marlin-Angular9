@@ -64,23 +64,9 @@
 }
 
 #submit-btn{
-    border: 1px solid grey;
-    border-radius: 10px;
-    box-shadow: -1px 1.5px 4px 0.1px black;
-    font-size: clamp(14px,1vw,18px);
-    font-weight: bold;
-    color: rgb(0, 175, 175);
-    background: rgba(88, 88, 88, 0.144);
-    text-align: center;
     padding: 0.5%;
     width: 50%;
     margin-top: 2.5%;
-}
-
-#submit-btn:hover{
-    color: blue;
-    cursor: pointer;
-    box-shadow: -1px 3px 10px 1px black;
 }
 
 .preview-section{

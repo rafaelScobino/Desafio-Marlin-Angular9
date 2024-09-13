@@ -10,11 +10,13 @@ export class PostFeedbackComponent implements OnInit {
 
   @Input('isPosted') isPosted:boolean;
   @Input('postId') postId: string;
+  @Input('postTitle') postTitle:string;
 
   constructor(private router:Router) { }
 
   ngOnInit(): void {
     console.log(this.postId)
+    console.log(this.postTitle)
   }
 
   goToDetails(){
@@ -22,7 +24,7 @@ export class PostFeedbackComponent implements OnInit {
   console.log('navigating')
     this.router.navigate(
     ['/news-detail'],
-    { queryParams: { id: parseInt(this.postId)}})
+    { queryParams: { id: parseInt(this.postId), title: this.postTitle}})
   }
 
 }

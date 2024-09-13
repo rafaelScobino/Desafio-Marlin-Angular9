@@ -6,7 +6,8 @@ import { MoreNewsComponent } from './more-news/more-news.component';
 import { NewsPageComponent } from './news-page/news-page.component';
 
 const routes: Routes = [
-  {path: '', component: NewsPageComponent},
+  {path:'', component: NewsPageComponent},
+  {path:'news-page', component: NewsPageComponent},
   {path:'news-detail', component:NewsDetailComponent},
   {path:'more-news', component:MoreNewsComponent}
 

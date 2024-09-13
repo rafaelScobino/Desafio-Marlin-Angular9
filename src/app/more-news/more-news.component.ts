@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./more-news.component.css']
 })
 export class MoreNewsComponent implements OnInit {
+
+  document:Document;
   testeId = 2;
 
   //Declarando propriedade para 'post-feedback'
@@ -42,6 +44,7 @@ export class MoreNewsComponent implements OnInit {
   constructor(private api:ApiService,private router:Router) { }
 
   ngOnInit(): void {
+    console.log()
     
     //Gerando nova ID valida para notícia
     this.api.getValidId().subscribe((data)=>{
@@ -53,8 +56,6 @@ export class MoreNewsComponent implements OnInit {
     this.createdAt = new Date().toISOString()
     console.log(this.createdAt)
 
-    //Definindo estratégia de rota para impedir o Angular de usar a mesma rota e simular um 'page Refresh'
-    this.router.routeReuseStrategy.shouldReuseRoute = () => { return false; };
 
   }
 

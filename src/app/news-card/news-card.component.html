@@ -10,7 +10,7 @@
         <div class="paragraph-div">
             <p class="news-card-paragraph">{{cardBodyPrev}}</p>
         </div>
-        <button class="proj-link" [routerLink]="detailsLink" [queryParams]="detailsParams">Ler mais</button>
+        <button class="proj-link" (click)="reRoute()" [routerLink]="detailsLink" [queryParams]="detailsParams">Ler mais</button>
     </section>
     </div>
 </article>
