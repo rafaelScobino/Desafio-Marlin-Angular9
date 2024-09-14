@@ -88,15 +88,15 @@
 .home-div figure{
     display: flex;
     flex-direction: row;
-    gap: 5%;
+    gap: 2%;
     align-items: center;
 }
 
 .home-div img{
     border:none;
     box-shadow:none;
-    width: 50px;
-    height: 50px;
+    width: 15px;
+    height: 15px;
 }
 
 
@@ -125,11 +125,6 @@
 
     .nav-bar{
         width: 80%;
-    }
-
-    .home-div img{
-        width: 25px;
-        height: 25px;
     }
 }
 

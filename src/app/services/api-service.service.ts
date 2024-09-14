@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { News } from '../models/news.model';
 import { Observable, of } from 'rxjs';
-import { map} from 'rxjs/operators';
+import { catchError, map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -75,23 +75,19 @@ export class ApiService {
       }))}
 
   //Método POST para gravar News criada
-  postNews(data:News):void{
+  postNews(data:News):Observable<News>{
 
     //Validando input do usuário como News Object
-    if( data instanceof News){
+    if( data instanceof News) {
 
-    //Criando requisição POST para enviar dados com fetch
-    fetch('',
-      {
-        method: 'POST',
-        headers: {'Content-type': 'application/json'},
-        body: JSON.stringify(data),
+    //Criando POST para envio dados
+    return this.http.post<News>('https://jsonplaceholder.typicode.com/posts',data,{ 
+    headers:{'Content-type': 'application/json'},
+    reportProgress: true
+    })
       
-      }).then((response)=>{response.json()})
-        .then((postResult) => {console.log(postResult)})
-
     }else{
-      throw new Error('POST not executed because ID already exists or Data is not valid News')
+      throw new Error('POST not executed because Data is not valid News')
     }
   }
 

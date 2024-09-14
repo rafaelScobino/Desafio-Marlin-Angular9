@@ -1,17 +1,10 @@
-
 .news-form{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    width: 45%;
+    width: 100%;
+    height: 100%;
 }
-
-.header-inputs{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-}
-
 .input-div{
     font-weight: bold;
     display:flex;
@@ -24,6 +17,10 @@
 .input-div input{
     margin: 0.5% 0 1% 0;
     padding: 1.5%;
+}
+
+.textarea-div{
+    flex-grow:1 ;
 }
 
 #newsTitle{
@@ -41,10 +38,6 @@
     align-self: center;
 }
 
-.textarea-div{
-    height: 70%;
-}
-
 #newsBody{
     padding: 1.5%;
     resize:none;
@@ -54,7 +47,8 @@
 
 @media (max-width: 500px) {
     .news-form{
-        width: 80%;
+        
+        width: 100%;
     }
 
     .textarea-div{

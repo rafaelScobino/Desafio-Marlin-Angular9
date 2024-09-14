@@ -6,12 +6,20 @@
     width: 100%;
 }
 
+.form-div{
+    width: 45%;
+}
+
 .preview-section{
     text-wrap: wrap;
     width: 45%;
 }
 
 @media (max-width: 500px) {
+    .form-div{
+        width: 90%;
+    }
+    
     .your-news{
         flex-direction: column;
         align-items: center;

@@ -1,10 +1,18 @@
 <app-post-feedback *ngIf="isPosted"
 [isPosted]="isPosted" 
-[postId]="testeId"
-[postTitle]="newsTitle"
+[postId]="testId"
+[postTitle]="newsForm.newsTitle"
+[isValid]="newsForm.isValid"
+[requestOk]="newsForm.requestOk"
 ></app-post-feedback>
-<main class="your-news">    
-    <news-form></news-form>
+<main class="your-news">
+    <div class="form-div">
+        <app-news-form
+        #newsForm
+        [id]="validId"
+        (formEvent)="setPost($event)"
+        ></app-news-form>
+    </div>
     <section class="preview-section">
         <app-news-card
             [title]="newsTitle"

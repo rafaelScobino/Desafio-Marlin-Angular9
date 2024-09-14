@@ -4,8 +4,6 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import {routeReuse, textToPrev} from './../utils/newsUtils';
 
 //Importando ApiService para validar url da imagem
-import { ApiService } from '../services/api-service.service';
-import { title } from 'process';
 import { Router } from '@angular/router';
 
 @Component({
@@ -32,7 +30,7 @@ export class NewsCardComponent implements OnInit,OnChanges {
   detailsLink:string;
   detailsParams:{};
 
-  constructor(private api:ApiService,private router:Router) { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
     
@@ -40,17 +38,19 @@ export class NewsCardComponent implements OnInit,OnChanges {
     this.detailsLink = '/news-detail'
     this.detailsParams = { id: this.cardId, title: this.cardTitle}
 
-    //Utilizando 'textToPrev' para encurtar o texto do titulo e fazer a preview
+    // //Utilizando 'textToPrev' para encurtar o texto do titulo e fazer a preview
     this.cardTitlePrev = textToPrev(this.cardTitle,80);
     
-    //Utilizando 'textToPrev' para encurtar o texto do body e fazer a preview
+    // //Utilizando 'textToPrev' para encurtar o texto do body e fazer a preview
     this.cardBodyPrev = textToPrev(this.cardBody,97);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+
     if (changes['cardTitle'] || changes['cardBody']) {
       this.cardTitlePrev = textToPrev(this.cardTitle, 80);
       this.cardBodyPrev = textToPrev(this.cardBody, 97);
+      this.detailsParams = { id: this.cardId, title: this.cardTitle}
     }
     if (changes['cardId']) {
       this.detailsParams = { id: this.cardId, title: this.cardTitle };

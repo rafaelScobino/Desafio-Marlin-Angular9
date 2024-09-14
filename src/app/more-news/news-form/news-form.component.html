@@ -1,5 +1,4 @@
-<form #newsForm="ngForm" (ngSubmit)="onSubmit(newsForm)" class="news-form">
-  <section class="header-inputs">
+<form #newsForm="ngForm" (ngSubmit)="submitNews(newsForm)" class="news-form">
     <div class="input-div">
       <label for="newsTitle">Titulo</label>
       <input class="proj-input" type="text" id="newsTitle" name="newsTitle" required  [(ngModel)]="newsTitle" placeholder="Titulo..">
@@ -8,12 +7,9 @@
       <label for="newsImgUrl">Link da image<a id="open-link" href="{{newsImgUrl}}" ><img id="open-newsImg" class="box-shadow" src="./assets/openIMG.png" alt="imgUrl"></a></label>
       <input class="proj-input" type="url" id="newsImgUrl" name="newsImgUrl" required [(ngModel)]="newsImgUrl" placeholder="URL da sua imagem!">
     </div>
-    </section>
     <div class="input-div textarea-div">
       <label for="newsBody">Texto da sua notícia</label>
       <textarea class="proj-input" type="text" id="newsBody" name="newsBody" required [(ngModel)]="newsBody" placeholder="Escreva sua notícia!"></textarea>
     </div>
-    <div>
-      <button type="submit" class="proj-btn" id="submit-btn">Postar</button>
-  </div> 
+      <button type="submit" class="proj-btn" id="submit-btn">ENVIAR POST</button>
 </form>

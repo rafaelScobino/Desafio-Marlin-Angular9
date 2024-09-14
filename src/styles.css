@@ -28,7 +28,7 @@
 .box-shadow{
     border: 1px solid gray;
     border-radius: 8px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .box-shadow:hover{
@@ -64,6 +64,7 @@
     padding: 8px 24px;
     color: white;
     background:black ;
+    width: fit-content;
 }
 
 .proj-btn:hover{

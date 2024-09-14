@@ -1,107 +1,57 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-
-//importando model 'News'
-import { News } from '../models/news.model';
+import { Component, OnInit, ViewChild} from '@angular/core';
 
 //Importando 'ApiService'
 import { ApiService } from '../services/api-service.service';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { NewsFormComponent } from './news-form/news-form.component';
 
 @Component({
   selector: 'app-more-news',
   templateUrl: './more-news.component.html',
   styleUrls: ['./more-news.component.css']
 })
-export class MoreNewsComponent implements OnInit, OnChanges {
+export class MoreNewsComponent implements OnInit   {
 
-  @ViewChild('form', { static: true }) newsFrom: NgForm;
 
-  testeId = 2;
+  @ViewChild('newsForm') newsForm!: NewsFormComponent;
+
+  testId:number=37;
 
   //Declarando propriedade para 'post-feedback'
-  isPosted:boolean;
-
-  //Declarando Objeto do Form
-  formObj: {
-    createdAt: string;
-    title: string;
-    image: string;
-    body: string;
-    id: string;
-  }
-
-  //Declarando Objeto News
-  NewsObj:News;
-
-  //Declarando propriedades para criação dinâmica de 'news-card'
-  @Input() newsImgUrl:string = '';
-  @Input() newsTitle:string = '';
-  @Input() newsBody:string = '';
+  _isPosted:boolean;
 
   //Declarando propriedade para WebApi POST
   validId:string;
-  createdAt:string;
+
 
   constructor(private api:ApiService,private router:Router) { }
 
   ngOnInit(): void {
-    this.newsFrom.form.valueChanges.subscribe(x => {
-      console.log(x);
-    })
-    
     //Gerando nova ID valida para notícia
     this.api.getValidId().subscribe((data)=>{
       this.validId = `${data}`
       console.log(this.validId)
     })
 
-    // 
-    this.createdAt = new Date().toISOString()
-    console.log(this.createdAt)
-
-
   }
 
-  ngOnChanges(changes:SimpleChanges): void {
-      this.updateObjNews()
-      console.log('objNewsUpdate')
-      console.log(this.formObj)
+  get newsTitle() {
+    return this.newsForm?.newsTitle || '';
   }
 
-  onSubmit(f: NgForm){
-      console.log(f)
-      console.log(f.valid)
-      console.log(f.valueChanges)
-      this.NewsObj = News.createNews(this.formObj)
-      console.log(this.NewsObj)
+  get newsImgUrl() {
+    return this.newsForm?.newsImgUrl || '';
   }
 
-
-  updateObjNews():void {
-    this.formObj  = {
-      createdAt:this.createdAt,
-      title:this.newsTitle,
-      image:this.newsImgUrl,
-      body: this.newsBody,
-      id: this.validId
-    }
+  get newsBody() {
+    return this.newsForm?.newsBody || '';
   }
 
-
-
-  postYourNews(){
-  
-  this.isPosted = true;
-   this.testeId = 3;
-
-  this.NewsObj = News.createNews(this.formObj)
-
-  console.log(this.NewsObj)
-
-    this.api.postNews(
-      this.NewsObj
-    )
+  get isPosted(){
+    return this._isPosted
   }
 
+  setPost(isPosted: boolean) {
+    this._isPosted = isPosted;
+  }
 }
