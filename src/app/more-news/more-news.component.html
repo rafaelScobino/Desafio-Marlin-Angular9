@@ -3,24 +3,8 @@
 [postId]="testeId"
 [postTitle]="newsTitle"
 ></app-post-feedback>
-<main class="your-news">
-    <form #newsForm="ngForm" class="news-form">
-            <section class="header-inputs">
-                <div class="input-div">
-                    <label for="newsTitle">Titulo</label>
-                    <input type="text" id="newsTitle" name="newsTitle" required  [(ngModel)]="newsTitle" placeholder="Titulo..">
-                </div>
-                <div class="input-div">
-                    <label for="newsImgUrl">Link da image<a id="open-link" href="https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/f28f/live/c1483cc0-60a2-11ef-b76f-f1f593af629e.png.webp" ><img id="open-newsImg" class="box-shadow" src="./assets/openIMG.png" alt="imgUrl"></a></label>
-                    <input type="text" id="newsImgUrl" name="newsImgUrl" required [(ngModel)]="newsImgUrl" placeholder="URL da sua imagem!">
-                </div>
-            </section>
-            <div class="input-div textarea-div">
-                <label for="newsBody">Texto da sua notícia</label>
-                <textarea type="text" id="newsBody" name="newsBody" required [(ngModel)]="newsBody" placeholder="Escreva sua notícia!"></textarea>
-            </div>
-            <button type="submit" (click)="postYourNews()" class="proj-btn" id="submit-btn">Postar</button>
-    </form>
+<main class="your-news">    
+    <news-form></news-form>
     <section class="preview-section">
         <app-news-card
             [title]="newsTitle"

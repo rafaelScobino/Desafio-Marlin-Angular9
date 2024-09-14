@@ -1,7 +1,7 @@
 <article>
     <aside class="author-detail">
         <div>
-            <figure  class="author-detail-figure">
+            <figure class="author-detail-figure box-shadow">
                 <img src="./assets/blankUser.png" alt="author image">
                 <figcaption><b>Escrito por: </b>Author P. H. PlaceHolder</figcaption>
             </figure>
@@ -10,7 +10,7 @@
     </aside>
     <main>
         <section class="news-detail-content">
-            <figure class="news-detail-figure">
+            <figure class="news-detail-figure box-shadow">
                 <img [src]="NewsObj.image" onerror="this.src='./assets/placeholderImg.jpg'" [alt]="NewsObj.title">
                 <figcaption>{{NewsObj.title}}</figcaption>           
             </figure>

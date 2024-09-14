@@ -22,10 +22,6 @@
     text-decoration: none;
 }
 
-.category-list-item a:hover{
-    color:rgb(0, 204, 204)
-}
-
 .side-bar-section-search-div{
     width: 50%;
     display: flex;
@@ -43,11 +39,16 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    font-size: clamp(14px,1vw,18px);
     padding: 5% 2.5% 5% 2.5% ;
     margin-top: 2.5%;
-    border: 1px solid gray;
-    border-radius: 5px;
+}
+
+.search-div-input:focus-within{
+    border: 1px solid rgb(0, 175, 175);
+}
+
+.search-div-input input:invalid{
+    color: red;
 }
 
 .search-div-input button{
@@ -92,9 +93,12 @@
 }
 
 .home-div img{
+    border:none;
+    box-shadow:none;
     width: 50px;
     height: 50px;
 }
+
 
 .nav-bar ul{
     display: flex;

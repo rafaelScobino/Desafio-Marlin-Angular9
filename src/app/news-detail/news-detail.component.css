@@ -8,9 +8,6 @@
 }
 
 .author-detail-figure{
-    border: 1.5px solid grey;
-    border-radius: 15px;
-    box-shadow: -1px 1.5px 4px 0.1px ;
     padding: 1.5%;
     display: flex;
     flex-wrap: nowrap;
@@ -27,14 +24,10 @@
 }
 
 .author-detail-figure img{
-    border: 1.5px solid grey;
+    border: 1px solid gray;
     border-radius: 100%;
     width: 50px;
     height: 50px;
-}
-
-.author-detail-figure:hover img{ 
-    box-shadow: -1px 3px 10px 1px;
 }
 
 .author-detail-figure:hover figcaption{ 
@@ -47,17 +40,14 @@
 }
 
 .news-detail-figure{
-    border: 1.5px solid grey;
-    border-radius: 15px;
-    box-shadow: -1px 1.5px 4px 0.1px; 
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
 }   
 
 .news-detail-figure img{
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     border-bottom: 1px solid grey;
     max-height: 60vh;
 }

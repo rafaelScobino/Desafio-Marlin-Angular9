@@ -91,7 +91,7 @@ export class ApiService {
         .then((postResult) => {console.log(postResult)})
 
     }else{
-      throw new Error('POST not executed because Data is not valid News')
+      throw new Error('POST not executed because ID already exists or Data is not valid News')
     }
   }
 

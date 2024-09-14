@@ -18,6 +18,7 @@ import { ApiService } from './services/api-service.service';
 
 //Importando modulo para configurar dependências do HttpClient
 import {HttpClientModule} from '@angular/common/http';
+import { NewsFormComponent } from './more-news/news-form/news-form.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {HttpClientModule} from '@angular/common/http';
     MoreNewsComponent,
     PageHeaderComponent,
     NewsPageComponent,
-    PostFeedbackComponent
+    PostFeedbackComponent,
+    NewsFormComponent
   ],
   imports: [
     BrowserModule,

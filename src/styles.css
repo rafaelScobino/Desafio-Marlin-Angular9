@@ -25,27 +25,48 @@
     cursor: pointer;
 }
 
-.proj-img-container:hover img{
-    box-shadow: -1px 3px 10px 1px black;
+.box-shadow{
+    border: 1px solid gray;
+    border-radius: 8px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .box-shadow:hover{
-    box-shadow: -1px 3px 10px 1px black;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+
+.proj-input{    
+    border: 1px solid gray;
+    border-radius: 8px;
+}
+
+.proj-input:hover{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.proj-input:focus-visible{
+    outline: none;
+}
+
+.proj-input:valid{
+    border: 1px solid green;
+}
+
+.proj-input:invalid{
+    border: 1px solid red;
+}
+
 
 .proj-btn{
     border: 1px solid grey;
-    border-radius: 10px;
-    box-shadow: -1px 1.5px 4px 0.1px black;
-    font-size: clamp(14px,1vw,18px);
+    border-radius: 8px;
     font-weight: bold;
-    color: rgb(0, 175, 175);
-    background: rgba(88, 88, 88, 0.144);
-    text-align: center;
+    padding: 8px 24px;
+    color: white;
+    background:black ;
 }
 
 .proj-btn:hover{
-    color: blue;
     cursor: pointer;
-    box-shadow: -1px 3px 10px 1px black;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }

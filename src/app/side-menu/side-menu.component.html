@@ -10,16 +10,16 @@
     </div>
     <div class="side-bar-section-search-div">
         <label for="search-input" class="search-div-title">Procurando alguma notícia?</label>
-        <div class="search-div-input">
-            <input id="search-input" [(ngModel)]="searchText" (change)="searchNewsUpdate()"   placeholder="Pesquisar por...">
+        <div class="search-div-input box-shadow">
+            <input type="text" required id="search-input" [(ngModel)]="searchText" (change)="searchNewsUpdate()"   placeholder="{{searchPlaceHolder}}">
             <button (click)="searchNews()"></button>
         </div>
     </div>
     <nav class="nav-bar">
         <div class="home-div">
             <a class="proj-link" href="./">
-                <figure class="proj-img-container">
-                <img class="box-shadow" src="./assets/home.png" alt="home icon">
+                <figure>
+                <img src="./assets/home.png" alt="home icon">
                 <figcaption>Inicio</figcaption>
                 </figure>
             </a>

@@ -10,7 +10,7 @@
     margin-bottom: 5% ;
 }
 
-.btn-div{
+.load-more-div{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,7 +19,7 @@
     overflow: hidden;
 }
 
-.load-more{
+.btn-div{
     height: 50px;
     width: 40%;
     overflow: hidden;

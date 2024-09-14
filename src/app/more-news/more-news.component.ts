@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 //importando model 'News'
 import { News } from '../models/news.model';
@@ -6,15 +6,17 @@ import { News } from '../models/news.model';
 //Importando 'ApiService'
 import { ApiService } from '../services/api-service.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-more-news',
   templateUrl: './more-news.component.html',
   styleUrls: ['./more-news.component.css']
 })
-export class MoreNewsComponent implements OnInit {
+export class MoreNewsComponent implements OnInit, OnChanges {
 
-  document:Document;
+  @ViewChild('form', { static: true }) newsFrom: NgForm;
+
   testeId = 2;
 
   //Declarando propriedade para 'post-feedback'
@@ -44,7 +46,9 @@ export class MoreNewsComponent implements OnInit {
   constructor(private api:ApiService,private router:Router) { }
 
   ngOnInit(): void {
-    console.log()
+    this.newsFrom.form.valueChanges.subscribe(x => {
+      console.log(x);
+    })
     
     //Gerando nova ID valida para notícia
     this.api.getValidId().subscribe((data)=>{
@@ -59,18 +63,37 @@ export class MoreNewsComponent implements OnInit {
 
   }
 
+  ngOnChanges(changes:SimpleChanges): void {
+      this.updateObjNews()
+      console.log('objNewsUpdate')
+      console.log(this.formObj)
+  }
+
+  onSubmit(f: NgForm){
+      console.log(f)
+      console.log(f.valid)
+      console.log(f.valueChanges)
+      this.NewsObj = News.createNews(this.formObj)
+      console.log(this.NewsObj)
+  }
+
+
+  updateObjNews():void {
+    this.formObj  = {
+      createdAt:this.createdAt,
+      title:this.newsTitle,
+      image:this.newsImgUrl,
+      body: this.newsBody,
+      id: this.validId
+    }
+  }
+
+
+
   postYourNews(){
   
   this.isPosted = true;
    this.testeId = 3;
-
-  this.formObj  = {
-    createdAt:this.createdAt,
-    title:this.newsTitle,
-    image:this.newsImgUrl,
-    body: this.newsBody,
-    id: this.validId
-  }
 
   this.NewsObj = News.createNews(this.formObj)
 

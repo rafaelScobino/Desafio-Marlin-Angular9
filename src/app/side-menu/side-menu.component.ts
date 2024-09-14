@@ -13,6 +13,9 @@ export class SideMenuComponent implements OnInit {
   //Declarando parâmetros de pesquisa
   @Input() searchText:string;
 
+  //Declarando place holder
+  searchPlaceHolder:string = 'Pesquisar por...';
+
   //Declarando rotas
   moreNewsRoute:string;
   newsDetailRoute:string;
@@ -62,8 +65,15 @@ export class SideMenuComponent implements OnInit {
   }
 
   searchNews(){
-    routeReuse(this.router,false)
-    this.router.navigate([this.searchNewsRoute],{queryParams: this.searchParams})
+    if(this.searchText){
+      routeReuse(this.router,false)
+      this.router.navigate([this.searchNewsRoute],{queryParams: this.searchParams})
+    }else{
+      this.searchPlaceHolder = 'Texto inválido'
+      setInterval(()=>{this.searchPlaceHolder = 'Pesquisar por...'},3000)
+    }
+    this.searchText = ''
+    
   }
 
   reRoute(){
