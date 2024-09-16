@@ -73,7 +73,7 @@ O projeto foi planejado utilizando o fluxograma feito com 'draw.io':
   **Devido a problemas de compatibilidade foi utilizado o `Node.js na versão 20`**
   **Após o `ng new` o comando `npm install --legacy-peer-deps` foi utilizado para lidar com dependências deprecadas**
   
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.13.
+Projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 9.1.13.
 
 ## Server de desenvolvimento
 
