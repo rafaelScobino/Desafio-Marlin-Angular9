@@ -59,6 +59,7 @@ Para interromper a execução pressione `ctrl + C` em seu terminal.
 
 ## Planejamento do projeto feito com `draw.io`
 
+O projeto foi planejado utilizando o fluxograma feito com 'draw.io' [BluePrint]('./Projeto Marlin.drawio.png')
 
 # MarlinApp
 
