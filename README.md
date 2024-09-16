@@ -1,7 +1,11 @@
 # Desafio Marlin
 
+**Este projeto pode ser consultado no githubpages no link:"" 'https://rafaelscobino.github.io/Desafio-Marlin-Angular9-Pages/'
+
 Este projeto tem por objetivo:
 - Recriar o estilo da imagem  utilizando HTML e CSS, sem auxílio de nenhum framework;
+    - Pode ser consultado no repositório 'https://github.com/rafaelScobino/DesafioMarlin-HtmlEstatico'
+      
 - Exibir as notícias, no padrão da tela da tela proposta pela desfio consumindo a MockApi por meio do método GET;
 - Criar uma tela para exibir a notícia em detalhes utilizando o método GET com o parâmetro de ID para retornar a notícia completa;
 - Criar uma tela para usar o método POST e enviar uma nova notícia para a MockAPi;
@@ -59,7 +63,10 @@ Para interromper a execução pressione `ctrl + C` em seu terminal.
 
 ## Planejamento do projeto feito com `draw.io`
 
-O projeto foi planejado utilizando o fluxograma feito com 'draw.io' [BluePrint]('./Projeto Marlin.drawio.png')
+O projeto foi planejado utilizando o fluxograma feito com 'draw.io':
+
+![Projeto Marlin drawio](https://github.com/user-attachments/assets/2fb31914-c7b4-4ed2-b975-19953078d29a)
+
 
 # MarlinApp
 
