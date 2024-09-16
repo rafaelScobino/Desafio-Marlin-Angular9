@@ -20,7 +20,7 @@
 }
 
 .textarea-div{
-    flex-grow:1 ;
+    flex-grow:1;
 }
 
 #newsTitle{
@@ -47,7 +47,6 @@
 
 @media (max-width: 500px) {
     .news-form{
-        
         width: 100%;
     }
 

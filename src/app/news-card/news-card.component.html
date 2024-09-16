@@ -1,6 +1,8 @@
 <article class="news-card box-shadow">
     <figure class="news-card-figure">
-        <img class="news-card-figure-img" [src]="cardImgUrl" onerror="this.src ='./assets/placeholderImg.jpg'" [alt]="cardTitle">
+        <img class="news-card-figure-img" 
+                [src]="cardImgUrl" 
+                onerror="this.src ='./assets/placeholderImg.jpg'" alt="Imagem da notícia">
     </figure>
     <div class="news-card-content-div">
         <section class="news-card-content">
@@ -10,7 +12,7 @@
         <div class="paragraph-div">
             <p class="news-card-paragraph">{{cardBodyPrev}}</p>
         </div>
-        <button class="proj-link" (click)="reRoute()" [routerLink]="detailsLink" [queryParams]="detailsParams">Ler mais</button>
+        <button class="proj-link" (click)="cardDetails()">Ler mais</button>
     </section>
     </div>
 </article>

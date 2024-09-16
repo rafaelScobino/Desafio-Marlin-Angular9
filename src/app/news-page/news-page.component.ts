@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+//Importando ApiService para request GET
 import { ApiService } from '../services/api-service.service';
+
+//Importando model 'News' para formatação de dado
 import { News } from '../models/news.model';
-import { moreItems, newsSearchFilter, routeReuse, routerUrlParams } from '../utils/newsUtils';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs/operators';
+
+//Importando funções de apoio do NewsUtils
+import { moreItems, textFilter, routeReuse, routerUrlParams } from '../utils/newsUtils';
+
 
 @Component({
   selector: 'app-news-page',
@@ -11,9 +17,6 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./news-page.component.css']
 })
 export class NewsPageComponent implements OnInit {
-
-//Injentando ApiService no componente
-  constructor(private api:ApiService,private router:Router) { }
 
   //Declarando array de 'News' e  Objeto 'News'
   loadedNewsArr:News[] = []; 
@@ -24,59 +27,62 @@ export class NewsPageComponent implements OnInit {
 
   //Declarando booleano para comportamento do loadMore
   isSearchOn:boolean;
+
+  constructor(private api:ApiService,private router:Router) { }
   
   ngOnInit(): void {
-    console.log('newspage Ignited')
     //Retornando Observable<News[]> e definindo valor de newsArr
     this.api.getAllNews().subscribe(
       (obsvNews)=>{
+
          this.newsArr = obsvNews;
-         console.log(this.newsArr)
          if(this.router.url.includes('searchParams')){
           let searchParam = routerUrlParams(this.router)['searchParams'];
             this.loadNews(searchParam)
+
          }else{
           this.initNews()
           this.setActiveCards()
          }
-      }
-    )
+      })
+
+    //Definindo estratégia de rota para impedir o Angular de usar a mesma rota e simular um 'page Refresh'
     routeReuse(this.router,true)
+
   }
 
-  //Método para carregar notícias no array que gera news-card
+  //Método para carregar notícias no Array que gera 'news-card'
   initNews():void{
-      console.log('init news')
       this.loadedNewsArr = moreItems(this.newsArr,this.loadedNewsArr,6);
       this.setActiveCards()
   }
 
   //Método para retornar Array filtrado pela pesquisa
   searchedArray(searchString:string):News[]{
-    console.log('searched')
     let finalString:string = searchString.toLowerCase()
-    return newsSearchFilter(this.newsArr,finalString)
+    return textFilter(this.newsArr,finalString)
   }
 
   //Método para fazer a lógica de pesquisa e inicialização do component
   loadNews(searchParam:string):void{
-      console.log('loadNews')
         this.isSearchOn = true;
         this.loadedNewsArr = this.searchedArray(searchParam)
-        
   }
 
+  //Método para limpar Array modificado pela pesquisa
   cleanLoadedNews(){
     this.loadedNewsArr = []
   }
 
-  //Método para carregar mais news-card
+  //Método para carregar mais 'news-card'
   loadMore():void{
+
     if(this.isSearchOn){
       this.cleanLoadedNews()
       this.isSearchOn = false;
+
     }
-    console.log('loadMore')
+
     this.loadedNewsArr =  moreItems(this.newsArr,this.loadedNewsArr,6);
     this.setActiveCards()
     this.router.navigate([],{queryParams:{qty:this.numOfCards}});
@@ -85,7 +91,6 @@ export class NewsPageComponent implements OnInit {
    //Método para dar update na propriedade 'numOfCards'
   setActiveCards():void{
     this.numOfCards = this.loadedNewsArr.length
-    console.log(this.numOfCards)
   }
 
 }

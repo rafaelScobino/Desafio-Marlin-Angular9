@@ -1,7 +1,11 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ApiService } from '../services/api-service.service';
+import { Component, Input,OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+
+//Importando 'ApiService'
+import { ApiService } from '../services/api-service.service';
+
+//Importando função para transformar data do utils
 import { routeReuse } from '../utils/newsUtils';
 
 @Component({
@@ -21,7 +25,7 @@ export class SideMenuComponent implements OnInit {
   newsDetailRoute:string;
   searchNewsRoute:string;
 
-  //Declarando parâmetros de Header
+  //Declarando parâmetros de Query
   detailsParams:{};
   searchParams:{};
   
@@ -37,7 +41,7 @@ export class SideMenuComponent implements OnInit {
         (data)=>{
           this.randomId = data;
           
-          //Atribuindo valor a propriedade de parâmetro assincronicamente para esperar randomId ter valor e evitar 'undefined'
+          //Atribuindo valor a propriedade de parâmetro assincronamente para esperar randomId ter valor e evitar 'undefined'
           this.detailsParams = { id: this.randomId, sorte: 1};
         }
       )
@@ -54,28 +58,33 @@ export class SideMenuComponent implements OnInit {
         }
       );
 
+    //Inicializando valores de rotas
     this.searchNewsRoute = './'
     this.moreNewsRoute = "/more-news"
     this.newsDetailRoute = "/news-detail"
   }
 
+  //Método para atualizar parâmetros de busca
   searchNewsUpdate(){
     this.searchParams = {searchParams: this.searchText } ;
-    console.log('SearchFuncActiv')
   }
 
+  //Método responsável por executar a busca
   searchNews(){
     if(this.searchText){
       routeReuse(this.router,false)
       this.router.navigate([this.searchNewsRoute],{queryParams: this.searchParams})
+      
     }else{
       this.searchPlaceHolder = 'Texto inválido'
       setInterval(()=>{this.searchPlaceHolder = 'Pesquisar por...'},3000)
+    
     }
     this.searchText = ''
     
   }
 
+  //Método responsável por definir estratégia de rota para impedir o Angular de usar a mesma rota e simular um 'page Refresh'
   reRoute(){
     routeReuse(this.router,false)
   }

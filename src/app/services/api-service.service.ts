@@ -1,10 +1,12 @@
-
 //Service responsável por lidar com requests GET e POST
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map} from 'rxjs/operators';
+
+//Importando model 'News' para formatação de dado
 import { News } from '../models/news.model';
-import { Observable, of } from 'rxjs';
-import { catchError, map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +14,9 @@ import { catchError, map} from 'rxjs/operators';
 
 export class ApiService {
 
-  //Definindo URL da api e seu escopo
+  //Declarando URL da api e seu escopo
   private ApiUrl = 'https://5cf9ae9df26e8c00146cff8d.mockapi.io/api/v1/post/'
 
-  //Construindo 'HttpClient' para fazer requests
   constructor( private http: HttpClient ) { }
 
   //Método GET para retornar um Array de notícias → classe 'News'
@@ -45,7 +46,8 @@ export class ApiService {
 
         return validData;
 
-      }))}
+      }))
+    }
 
   //Método GET para retornar uma notícia especifica aceitando como parâmetro id:numero
   getNewsById(id:number):Observable<News>{
@@ -72,7 +74,8 @@ export class ApiService {
           throw new Error('Data return more than one item')
         } 
         
-      }))}
+      }))
+    }
 
   //Método POST para gravar News criada
   postNews(data:News):Observable<News>{
@@ -81,11 +84,11 @@ export class ApiService {
     if( data instanceof News) {
 
     //Criando POST para envio dados
-    return this.http.post<News>('https://jsonplaceholder.typicode.com/posts',data,{ 
+    return this.http.post<News>(this.ApiUrl,data,{ 
     headers:{'Content-type': 'application/json'},
     reportProgress: true
     })
-      
+  
     }else{
       throw new Error('POST not executed because Data is not valid News')
     }
@@ -115,11 +118,12 @@ export class ApiService {
           idArr = stringIdArr.map((item: string) => parseInt(item))
           idArr.sort((a:number, b:number) => a - b)
           
-          //Validando idArr e definindo o próximo ID valid
+          //Validando idArr e definindo o próximo validId
           if(idArr.length > 0){
             let validId:number = idArr[idArr.length - 1] + 1   
 
             return validId;
+
           }else{
             throw new Error('idArr is empty');
           }
@@ -127,10 +131,13 @@ export class ApiService {
         }else{
           throw new Error ("couldn't get valid ID") 
         }
-    }))};
+    }))
 
-  //Método para criar News.ID
+  };
+
+  //Método para gerar News.ID randômica para o 'Estou com sorte' do 'side-menu'
   getRndId():Observable<number>{
+
     //Definindo Array de News
     let newsArr:News[];
 
@@ -165,10 +172,10 @@ export class ApiService {
             idArr.sort((a,b) =>  a - b)
             do{
               rndId = Math.floor(Math.random() * (idArr[idArr.length - 1]))
+
             }while(!idArr.some(element => element === rndId ))
 
             return rndId;
-
           }
           
           else{
@@ -178,6 +185,8 @@ export class ApiService {
         }else{
           throw new Error ("couldn't get rndID") 
         }
-    }))};
+    }))
+    
+  };
 
 }

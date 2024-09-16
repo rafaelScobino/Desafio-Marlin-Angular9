@@ -12,10 +12,7 @@ import { NewsFormComponent } from './news-form/news-form.component';
 })
 export class MoreNewsComponent implements OnInit   {
 
-
   @ViewChild('newsForm') newsForm!: NewsFormComponent;
-
-  testId:number=37;
 
   //Declarando propriedade para 'post-feedback'
   _isPosted:boolean;
@@ -23,6 +20,8 @@ export class MoreNewsComponent implements OnInit   {
   //Declarando propriedade para WebApi POST
   validId:string;
 
+  //Declarando propriedade para o link do 'news-card' responsável pela prévia da notícia
+  previewLink:string = '/more-news'
 
   constructor(private api:ApiService,private router:Router) { }
 
@@ -35,6 +34,7 @@ export class MoreNewsComponent implements OnInit   {
 
   }
 
+  //Declarando getters para passar informações do 'news-form' para o 'news-card' da prévia
   get newsTitle() {
     return this.newsForm?.newsTitle || '';
   }
@@ -51,7 +51,14 @@ export class MoreNewsComponent implements OnInit   {
     return this._isPosted
   }
 
-  setPost(isPosted: boolean) {
+  //Método para receber notificação do forms e ativar o 'post-feedback'
+  setPosted(isPosted: boolean) {
     this._isPosted = isPosted;
   }
+
+  //Método para modificar o comportamento do link 'Leia mais' do 'news-card'
+  setIsMoreNews(){
+    return true
+  }
+
 }

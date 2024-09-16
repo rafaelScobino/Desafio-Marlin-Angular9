@@ -1,16 +1,16 @@
 <app-post-feedback *ngIf="isPosted"
-[isPosted]="isPosted" 
-[postId]="testId"
-[postTitle]="newsForm.newsTitle"
-[isValid]="newsForm.isValid"
-[requestOk]="newsForm.requestOk"
+    [isPosted]="isPosted" 
+    [postId]="validId"
+    [postTitle]="newsForm.newsTitle"
+    [isValid]="newsForm.isValid"
+    [requestOk]="newsForm.requestOk"
 ></app-post-feedback>
 <main class="your-news">
     <div class="form-div">
         <app-news-form
-        #newsForm
-        [id]="validId"
-        (formEvent)="setPost($event)"
+            #newsForm
+            [id]="validId"
+            (formEvent)="setPosted($event)"
         ></app-news-form>
     </div>
     <section class="preview-section">
@@ -19,6 +19,7 @@
             [img]="newsImgUrl"
             [body]="newsBody"
             [id]="validId"
+            [isMoreNews]="setIsMoreNews()"
         ></app-news-card>
     </section>
 </main>

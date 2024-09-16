@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute,Routes, RouterModule } from '@angular/router'
+import { Routes, RouterModule } from '@angular/router'
 import { NewsDetailComponent } from './news-detail/news-detail.component';
 import { MoreNewsComponent } from './more-news/more-news.component';
 import { NewsPageComponent } from './news-page/news-page.component';

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
-//Importando ActivatedRoute para tratar parâmetros do routerLink
 import { ActivatedRoute, Router } from '@angular/router';
 
 //importando model 'News'
@@ -10,7 +8,7 @@ import { News } from '../models/news.model';
 import { ApiService } from '../services/api-service.service';
 
 //Importando função para transformar data do utils
-import { transformDate } from '../utils/newsUtils';
+import { routeReuse, transformDate } from '../utils/newsUtils';
 
 @Component({
   selector: 'app-news-detail',
@@ -19,9 +17,9 @@ import { transformDate } from '../utils/newsUtils';
 })
 export class NewsDetailComponent implements OnInit {
 
+  //Declarando propriedades para lidar com retorno do GET
   paramId:number;
   NewsObj:News;
-
   cleanDate:string;
 
   constructor(private api:ApiService, private route: ActivatedRoute, private router:Router) { }
@@ -33,16 +31,16 @@ export class NewsDetailComponent implements OnInit {
       this.paramId = +param.get('id');
      })
 
+    //Invocando GET para gerar Objeto 'news'
     this.api.getNewsById(this.paramId).subscribe((data)=>{
       this.NewsObj = data
       
-      //Tratando a News.createdAt para data de detalhes
+      //Tratando a 'News.createdAt' para data de detalhes
       this.cleanDate = transformDate(this.NewsObj.createdAt)
     })
 
     //Definindo estratégia de rota para impedir o Angular de usar a mesma rota e simular um 'page Refresh'
-    this.router.routeReuseStrategy.shouldReuseRoute = () => { return false; };
-
+    routeReuse(this.router,false);
   }
 
 }

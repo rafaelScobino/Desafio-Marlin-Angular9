@@ -15,7 +15,8 @@
     width: 45%;
 }
 
-@media (max-width: 500px) {
+
+@media (max-width: 900px) {
     .form-div{
         width: 90%;
     }

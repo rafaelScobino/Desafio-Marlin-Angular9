@@ -21,7 +21,7 @@ export class News {
     image: string;
     body: string;
     id: string;}): News | null {
-    //const inputs = { item.createdAt, item.title, item.image, item.body, item.id };
+    
     if (News.isValid(item)) {
 
       return new News(

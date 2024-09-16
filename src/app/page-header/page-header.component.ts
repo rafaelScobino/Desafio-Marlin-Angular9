@@ -1,7 +1,8 @@
-import { Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { Url } from 'url';
+
+//Importando funções de apoio do NewsUtils
 import { routerUrlParams } from '../utils/newsUtils';
 
 @Component({
@@ -11,16 +12,17 @@ import { routerUrlParams } from '../utils/newsUtils';
 })
 export class PageHeaderComponent implements OnInit {
 
-  //Definindo propriedades do header component
-  @Input('title') inputTitle:string;
-  @Input('subtitle') inputSubtitle: string;
-
+  //Declarando propriedades do header component
   headerTitle:string;
   headerSubtitle:string;
   headerSubtitleNum:number = 6;
   headerSubtitleSearch:string = '';
 
-  //Propriedade para NgIf
+  //Declarando propriedades passadas pelo component pai para definir titulo e subtitulo 
+  @Input('title') inputTitle:string;
+  @Input('subtitle') inputSubtitle: string;
+
+  //Propriedade para NgIf do subtitulo
   showSubtitle:boolean = true;
   showSearch: boolean = false;
 
@@ -28,6 +30,8 @@ export class PageHeaderComponent implements OnInit {
 
   
   ngOnInit(): void {
+
+    //Escutando eventos de rota para modificar o component
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
@@ -61,6 +65,7 @@ export class PageHeaderComponent implements OnInit {
     }) 
    }
 
+  //Método responsável por lidar com a lógica da definição do titulo e subtitulo do component
   private headerInputs(url: string): void {
 
     if (url.includes('/news-detail')) {
@@ -81,6 +86,8 @@ export class PageHeaderComponent implements OnInit {
 
     }
   }
+
+  
 }
    
       

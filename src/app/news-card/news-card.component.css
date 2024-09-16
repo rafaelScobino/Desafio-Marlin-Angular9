@@ -53,12 +53,18 @@
     height: 50%;
 }
 
-
 .news-card-paragraph{
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
     text-wrap: wrap;
+}
+
+/* Definindo responsividade do 'news-card' */
+@media (max-width: 900px) {
+    .news-card-figure-img{
+        height:45vw;
+    }
 }
 
 @media (max-width: 1330px){
@@ -127,8 +133,3 @@
 
 
 
-@media (max-width: 900px) {
-    .news-card-figure-img{
-        height:45vw;
-    }
-}
