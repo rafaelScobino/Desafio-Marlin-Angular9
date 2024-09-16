@@ -1,6 +1,6 @@
 # Desafio Marlin
 
-**Este projeto pode ser consultado no githubpages no link:"" 'https://rafaelscobino.github.io/Desafio-Marlin-Angular9-Pages/'
+**Este projeto pode ser consultado no githubpages no link:** 'https://rafaelscobino.github.io/Desafio-Marlin-Angular9-Pages/'
 
 Este projeto tem por objetivo:
 - Recriar o estilo da imagem  utilizando HTML e CSS, sem auxílio de nenhum framework;
